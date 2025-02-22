@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "ms-python.pylint",
+        "franneck94.vscode-python-dev-extension-pack",
+        "sugatoray.vscode-git-extension-pack",
+        "sndst00m.markdown-github-dark-pack",
+        "littlefoxteam.vscode-python-test-adapter",
+        "nickmillerdev.pytest-fixtures",
+        "github.vscode-pull-request-github"
+    ]
+}

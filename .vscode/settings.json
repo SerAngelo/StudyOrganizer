@@ -1,0 +1,6 @@
+{
+    "editor.renderWhitespace": "all",
+    "files.exclude": {
+        "": true
+    }
+}
