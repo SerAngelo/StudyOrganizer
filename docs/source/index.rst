@@ -14,4 +14,19 @@ documentation for details.
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   
 
+.. automodule:: SO
+   :members:
+   :private-members:
+   :imported-members:
+   :undoc-members: 
+   :show-inheritance:
+
+
+.. automodule:: study_organizer
+   :members:
+   :private-members:
+   :imported-members:
+   :undoc-members: 
+   :show-inheritance:
