@@ -6,6 +6,8 @@ from tabulate import tabulate
 
 
 class Argomento:
+    """_summary_
+    """    
     
     
     
@@ -16,15 +18,36 @@ class Argomento:
         self.date = []
 
     def set_data(self, new_data):
+        """_summary_
+
+        Parameters
+        ----------
+        new_data : _type_
+            _description_
+        """        
         self.date.append(new_data)
         
    # def reset_date(self):
    #     self.date = []
         
     def set_data_inizio(self, data_inizio):
+        """_summary_
+
+        Parameters
+        ----------
+        data_inizio : _type_
+            _description_
+        """        
         self.data_inizio = data_inizio
         
     def shift_date(self, days_shift):
+        """_summary_
+
+        Parameters
+        ----------
+        days_shift : _type_
+            _description_
+        """        
         data_corrente = datetime.now()
         
         for i in range(len(self.date)):
@@ -40,10 +63,14 @@ class Argomento:
                 self.date[i] = nuova_data.strftime('%Y-%m-%d')
 
     def print_info(self):
+        """_summary_
+        """        
         print(f"Argomento: {self.nome}  Ripetuto: {self.nvolte_ripetuto} volte.")
 
 
 class Materia:
+    """_summary_
+    """    
     def __init__(self, nome, argomenti):
         self.nome = nome
         self.N_argomenti = len(argomenti)
@@ -51,10 +78,19 @@ class Materia:
         
         
     def set_data_esame(self, data_esame):
+        """_summary_
+
+        Parameters
+        ----------
+        data_esame : _type_
+            _description_
+        """        
         self.data_esame = data_esame
 
 
     def print_info(self):
+        """_summary_
+        """        
         print(f"Materia: {self.nome}")
         for argomento in self.argomenti:
             argomento.print_info()
@@ -98,6 +134,20 @@ def leggi_file_e_crea_lista_materie(nome_file, materie_interessate):
 '''
 
 def leggi_file_e_crea_lista_materie(nome_file, materie_interessate):
+    """_summary_
+
+    Parameters
+    ----------
+    nome_file : _type_
+        _description_
+    materie_interessate : _type_
+        _description_
+
+    Returns
+    -------
+    _type_
+        _description_
+    """    
     materie = []
     nome_materia = None
 
@@ -150,6 +200,24 @@ def leggi_file_e_crea_lista_materie(nome_file, materie_interessate):
 
 
 def ripetizione_spaziata(nome_file, materie_da_ripassare, ripetizioni, save=False):
+    """_summary_
+
+    Parameters
+    ----------
+    nome_file : _type_
+        _description_
+    materie_da_ripassare : _type_
+        _description_
+    ripetizioni : _type_
+        _description_
+    save : bool, optional
+        _description_, by default False
+
+    Returns
+    -------
+    _type_
+        _description_
+    """    
     
     materie = leggi_file_e_crea_lista_materie(nome_file, materie_da_ripassare) #qui ho una lista di oggetti materia
 
@@ -197,6 +265,19 @@ def ripetizione_spaziata(nome_file, materie_da_ripassare, ripetizioni, save=Fals
 
 
 def shifting(filePKL, materiaX, argomentoX, numero_di_giorni):
+    """_summary_
+
+    Parameters
+    ----------
+    filePKL : _type_
+        _description_
+    materiaX : _type_
+        _description_
+    argomentoX : _type_
+        _description_
+    numero_di_giorni : _type_
+        _description_
+    """    
     with open(filePKL, 'rb') as file:
         materie, data_creazione = pickle.load(file)
         
@@ -217,6 +298,13 @@ def shifting(filePKL, materiaX, argomentoX, numero_di_giorni):
         
   
 def date_esame(filePKL):
+    """_summary_
+
+    Parameters
+    ----------
+    filePKL : _type_
+        _description_
+    """    
     with open(filePKL, 'rb') as file:
         materie, data_creazione = pickle.load(file)
     
@@ -229,6 +317,15 @@ def date_esame(filePKL):
 
 
 def stampa_lista_materie(filePKL, nome_file_output):
+    """_summary_
+
+    Parameters
+    ----------
+    filePKL : _type_
+        _description_
+    nome_file_output : _type_
+        _description_
+    """    
     with open(filePKL, 'rb') as file:
         materie, data_creazione = pickle.load(file)
 
@@ -274,6 +371,15 @@ def stampa_lista_materie(filePKL, nome_file_output):
 
 
 def stampa_tabella_materie(filePKL, nome_file_output):
+    """_summary_
+
+    Parameters
+    ----------
+    filePKL : _type_
+        _description_
+    nome_file_output : _type_
+        _description_
+    """    
     with open(filePKL, 'rb') as file:
         materie, data_creazione = pickle.load(file)
 
