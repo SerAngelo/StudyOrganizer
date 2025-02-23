@@ -6,6 +6,7 @@
         "sndst00m.markdown-github-dark-pack",
         "littlefoxteam.vscode-python-test-adapter",
         "nickmillerdev.pytest-fixtures",
-        "github.vscode-pull-request-github"
+        "github.vscode-pull-request-github",
+        "njpwerner.autodocstring"
     ]
 }
