@@ -6,7 +6,7 @@ from tabulate import tabulate
 class Argomento:
     """_summary_"""
 
-    def __init__(self, nome_arg: str, n: int):
+    def __init__(self, nome_arg: str, n: int) -> None:
         """_summary_
 
         Parameters
@@ -21,7 +21,7 @@ class Argomento:
         self.data_inizio = None
         self.date = []
 
-    def set_data(self, new_data) -> None:
+    def set_data(self, new_data: datetime) -> None:
         """_summary_
 
         Parameters
@@ -34,7 +34,7 @@ class Argomento:
     # def reset_date(self):
     #     self.date = []
 
-    def set_data_inizio(self, data_inizio):
+    def set_data_inizio(self, data_inizio: datetime) -> None:
         """_summary_
 
         Parameters
@@ -44,7 +44,7 @@ class Argomento:
         """
         self.data_inizio = data_inizio
 
-    def shift_date(self, days_shift):
+    def shift_date(self, days_shift: int) -> None:
         """_summary_
 
         Parameters
@@ -74,7 +74,7 @@ class Argomento:
 class Materia:
     """_summary_"""
 
-    def __init__(self, nome, argomenti):
+    def __init__(self, nome: str, argomenti: int) -> None:
         self.nome = nome
         self.N_argomenti = len(argomenti)
         self.argomenti = argomenti
@@ -98,44 +98,37 @@ class Materia:
         print()
 
 
-"""
-def leggi_file_e_crea_lista_materie(nome_file, materie_interessate):
-    materie = []
-    nome_materia = None
 
-    with open(nome_file, 'r') as file:
-        for line in file:
-            line = line.strip().split()
-
-            if line:
-                if line[0].startswith('#'):
-                    nome_materia = line[0]
-                    if nome_materia in materie_interessate:
-                        argomenti = []
-                        materie.append(Materia(nome_materia, argomenti))
-                elif len(line) >= 2 and nome_materia in materie_interessate:
-                    nome_argomento = line[0]
-                    n_ripetuto = int(line[1])
-                    
-                    try:
-                        anno = int(line[2])
-                        mese = int(line[3])
-                        giorno = int(line[4])
-                        data_inizio = datetime(anno,mese,giorno)
-                    except:
-                        data_inizio = None
-                    
-                    
-                    argomento = Argomento(nome_argomento, n_ripetuto)
-                    argomento.set_data_inizio(data_inizio)
-                    
-                    argomenti.append(argomento)
-
-    return materie
-"""
+# def leggi_file_e_crea_lista_materie(nome_file, materie_interessate):
+#     materie = []
+#     nome_materia = None
+#     with open(nome_file, 'r') as file:
+#         for line in file:
+#             line = line.strip().split()
+#             if line:
+#                 if line[0].startswith('#'):
+#                     nome_materia = line[0]
+#                     if nome_materia in materie_interessate:
+#                         argomenti = []
+#                         materie.append(Materia(nome_materia, argomenti))
+#                 elif len(line) >= 2 and nome_materia in materie_interessate:
+#                     nome_argomento = line[0]
+#                     n_ripetuto = int(line[1])
+#                     try:
+#                         anno = int(line[2])
+#                         mese = int(line[3])
+#                         giorno = int(line[4])
+#                         data_inizio = datetime(anno,mese,giorno)
+#                     except:
+#                         data_inizio = None
+#                     argomento = Argomento(nome_argomento, n_ripetuto)
+#                     argomento.set_data_inizio(data_inizio)
+#                     argomenti.append(argomento)
+#     return materie
 
 
-def leggi_file_e_crea_lista_materie(nome_file, materie_interessate):
+
+def leggi_file_e_crea_lista_materie(nome_file: str, materie_interessate: str) -> [Materia] | FileNotFoundError:
     """_summary_
 
     Parameters
@@ -157,7 +150,7 @@ def leggi_file_e_crea_lista_materie(nome_file, materie_interessate):
         for line in file:
             line = line.strip().split()
 
-            if line:
+            if line:                    
                 if line[0].startswith("#"):
                     nome_materia = line[0]
                     if nome_materia in materie_interessate:
@@ -196,7 +189,7 @@ def leggi_file_e_crea_lista_materie(nome_file, materie_interessate):
     return materie
 
 
-def ripetizione_spaziata(nome_file, materie_da_ripassare, ripetizioni, save=False):
+def ripetizione_spaziata(nome_file: str, materie_da_ripassare: str, ripetizioni: str, save: bool = False) -> [Materia] | OSError :
     """_summary_
 
     Parameters
@@ -252,7 +245,7 @@ def ripetizione_spaziata(nome_file, materie_da_ripassare, ripetizioni, save=Fals
     return materie
 
 
-def shifting(filePKL, materiaX, argomentoX, numero_di_giorni):
+def shifting(filePKL: str, materiaX: str, argomentoX: str, numero_di_giorni: datetime) -> None | OSError:
     """_summary_
 
     Parameters
@@ -290,7 +283,7 @@ def shifting(filePKL, materiaX, argomentoX, numero_di_giorni):
     )
 
 
-def date_esame(filePKL):
+def date_esame(filePKL: str) -> None | OSError:
     """_summary_
 
     Parameters
@@ -315,7 +308,7 @@ def date_esame(filePKL):
     print("")
 
 
-def stampa_lista_materie(filePKL, nome_file_output):
+def stampa_lista_materie(filePKL: str, nome_file_output: str) -> None | OSError:
     """_summary_
 
     Parameters
@@ -359,7 +352,7 @@ def stampa_lista_materie(filePKL, nome_file_output):
                 file.write("\n")
 
 
-def stampa_tabella_materie(filePKL, nome_file_output):
+def stampa_tabella_materie(filePKL: str, nome_file_output: str) -> None | OSError:
     """_summary_
 
     Parameters
