@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 import pickle
 from tabulate import tabulate
-
+from typing import List
 
 class Argomento:
     """_summary_"""
@@ -26,7 +26,7 @@ class Argomento:
 
         Parameters
         ----------
-        new_data : _type_
+        new_data : datetime
             _description_
         """        
         self.date.append(new_data)
@@ -35,23 +35,23 @@ class Argomento:
     #     self.date = []
 
     def set_data_inizio(self, data_inizio: datetime) -> None:
-        """_summary_
+        """set when start study the subject
 
         Parameters
         ----------
-        data_inizio : _type_
-            _description_
-        """
+        data_inizio : datetime
+            date when to start
+        """        
         self.data_inizio = data_inizio
 
     def shift_date(self, days_shift: int) -> None:
-        """_summary_
+        """modify the start date
 
         Parameters
         ----------
-        days_shift : _type_
-            _description_
-        """
+        days_shift : int
+            number of days
+        """        
         data_corrente = datetime.now()
 
         for i in range(len(self.date)):
@@ -66,20 +66,29 @@ class Argomento:
                 # Aggiorna la data nella lista
                 self.date[i] = nuova_data.strftime("%Y-%m-%d")
 
-    def print_info(self):
-        """_summary_"""
+    def print_info(self) -> None:
+        """inform the user about an 'argument'
+        """        
         print(f"Argomento: {self.nome}  Ripetuto: {self.nvolte_ripetuto} volte.")
 
 
 class Materia:
     """_summary_"""
-
     def __init__(self, nome: str, argomenti: int) -> None:
+        """_summary_
+
+        Parameters
+        ----------
+        nome : str
+            _description_
+        argomenti : int
+            _description_
+        """        
         self.nome = nome
         self.N_argomenti = len(argomenti)
         self.argomenti = argomenti
 
-    def set_data_esame(self, data_esame):
+    def set_data_esame(self, data_esame: datetime) -> None:
         """Imposta la data dell'esame
 
         Parameters
@@ -90,7 +99,7 @@ class Materia:
         """
         self.data_esame = data_esame
 
-    def print_info(self):
+    def print_info(self) -> None:
         """_summary_"""
         print(f"Materia: {self.nome}")
         for argomento in self.argomenti:
@@ -128,21 +137,21 @@ class Materia:
 
 
 
-def leggi_file_e_crea_lista_materie(nome_file: str, materie_interessate: str) -> [Materia] | FileNotFoundError:
+def leggi_file_e_crea_lista_materie(nome_file: str, materie_interessate: str) -> List[Materia]:
     """_summary_
 
     Parameters
     ----------
-    nome_file : _type_
+    nome_file : str
         _description_
-    materie_interessate : _type_
+    materie_interessate : str
         _description_
 
     Returns
     -------
-    _type_
+    List[Materia] |
         _description_
-    """
+    """    
     materie = []
     nome_materia = None
 
@@ -189,25 +198,25 @@ def leggi_file_e_crea_lista_materie(nome_file: str, materie_interessate: str) ->
     return materie
 
 
-def ripetizione_spaziata(nome_file: str, materie_da_ripassare: str, ripetizioni: str, save: bool = False) -> [Materia] | OSError :
+def ripetizione_spaziata(nome_file: str, materie_da_ripassare: str, ripetizioni: str, save: bool = False) -> List[Materia]:
     """_summary_
 
     Parameters
     ----------
-    nome_file : _type_
+    nome_file : str
         _description_
-    materie_da_ripassare : _type_
+    materie_da_ripassare : str
         _description_
-    ripetizioni : _type_
+    ripetizioni : str
         _description_
     save : bool, optional
         _description_, by default False
 
     Returns
     -------
-    _type_
+    List[Materia]
         _description_
-    """
+    """    
 
     materie = leggi_file_e_crea_lista_materie(
         nome_file, materie_da_ripassare
@@ -245,20 +254,20 @@ def ripetizione_spaziata(nome_file: str, materie_da_ripassare: str, ripetizioni:
     return materie
 
 
-def shifting(filePKL: str, materiaX: str, argomentoX: str, numero_di_giorni: datetime) -> None | OSError:
+def shifting(filePKL: str, materiaX: str, argomentoX: str, numero_di_giorni: datetime) -> None:
     """_summary_
 
     Parameters
     ----------
-    filePKL : _type_
+    filePKL : str
         _description_
-    materiaX : _type_
+    materiaX : str
         _description_
-    argomentoX : _type_
+    argomentoX : str
         _description_
-    numero_di_giorni : _type_
+    numero_di_giorni : datetime
         _description_
-    """
+    """    
     with open(filePKL, "rb") as file:
         materie, data_creazione = pickle.load(file)
 
@@ -283,14 +292,14 @@ def shifting(filePKL: str, materiaX: str, argomentoX: str, numero_di_giorni: dat
     )
 
 
-def date_esame(filePKL: str) -> None | OSError:
+def date_esame(filePKL: str) -> None:
     """_summary_
 
     Parameters
     ----------
-    filePKL : _type_
+    filePKL : str
         _description_
-    """
+    """    
     with open(filePKL, "rb") as file:
         materie, data_creazione = pickle.load(file)
 
@@ -308,16 +317,16 @@ def date_esame(filePKL: str) -> None | OSError:
     print("")
 
 
-def stampa_lista_materie(filePKL: str, nome_file_output: str) -> None | OSError:
+def stampa_lista_materie(filePKL: str, nome_file_output: str) -> None:
     """_summary_
 
     Parameters
     ----------
-    filePKL : _type_
+    filePKL : str
         _description_
-    nome_file_output : _type_
+    nome_file_output : str
         _description_
-    """
+    """    
     with open(filePKL, "rb") as file:
         materie, data_creazione = pickle.load(file)
 
@@ -346,22 +355,22 @@ def stampa_lista_materie(filePKL: str, nome_file_output: str) -> None | OSError:
             for materia in argomenti_per_data[data].keys():
                 file.write(f"\t\tMateria: {materia}\n")
 
-                argomenti = argomenti_per_data[data][materia]
+                argomenti = argomenti_per_data[data]List[materia]
                 for argomento in argomenti:
                     file.write(f"\t\t\tArgomento: {argomento.nome}\n")
                 file.write("\n")
 
 
-def stampa_tabella_materie(filePKL: str, nome_file_output: str) -> None | OSError:
+def stampa_tabella_materie(filePKL: str, nome_file_output: str) -> None:
     """_summary_
 
     Parameters
     ----------
-    filePKL : _type_
+    filePKL : str
         _description_
-    nome_file_output : _type_
+    nome_file_output : str
         _description_
-    """
+    """    
     with open(filePKL, "rb") as file:
         materie, data_creazione = pickle.load(file)
 
