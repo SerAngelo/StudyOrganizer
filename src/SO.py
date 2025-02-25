@@ -3,26 +3,12 @@ import time
 import subprocess
 
 def print_loading_bar(percentage):
-    """_summary_
-
-    Parameters
-    ----------
-    percentage : _type_
-        _description_
-
-    Returns
-    -------
-    _type_
-        _description_
-    """    
     bar_length = 20
     progress = int(bar_length * percentage / 100)
     bar = "[" + "=" * progress + " " * (bar_length - progress) + "]"
     return f"{bar} {percentage}% Complete"
 
-def generate_startup_output():
-    """_summary_
-    """    
+def generate_startup_output() -> None:
     print("*" * 80)
     print(r"""
    _____ _             _          ____                        _              
@@ -40,16 +26,12 @@ def generate_startup_output():
     print("Welcome to STUDY ORGANIZER - Your Ultimate Study Companion")
     print("*" * 80)
     
-def schermata_iniziale():
-    """_summary_
-    """    
+def schermata_iniziale() -> None:
     while True:
         input("\nPremi qualsiasi tasto per ritornare alla schermate iniziale:")
         break
     
-def crea_nuovo_calendario():
-    """_summary_
-    """    
+def crea_nuovo_calendario() -> None:
     
     nome_file = input("\nInserisci il nome del file.txt che contiene le materie, i rispettivi argomenti e le loro informazioni: ")
     ripetizioni = int(input("\nInserisci il numero di ripetizioni ideale per ogni argomento: "))
@@ -66,9 +48,8 @@ def crea_nuovo_calendario():
     
     
     
-def modifica_calendario():
-    """_summary_
-    """    
+def modifica_calendario() -> None:
+    
     materiaX = input("\nInserisci il nome della materia la cui programmazione deve cambiare: ")
     argomentoX = input("\nInserisci il nome dell'argomento di la cui programmazione deve cambiare: ")
     shift = int(input("Inserisci di quanti giorni shiftare: "))
@@ -81,9 +62,8 @@ def modifica_calendario():
     
     schermata_iniziale()
 
-def date():
-    """_summary_
-    """    
+def date() -> None:
+    
     try:
         so.date_esame('binary_output.pkl')
     except:
@@ -91,9 +71,7 @@ def date():
         
     schermata_iniziale()
     
-def mostra_help():
-    """_summary_
-    """    
+def mostra_help() -> None:
     print("-" * 80)
     print("Il file deve essere diviso in blocchi di questo tipo:\n")
     print(r"""
@@ -115,14 +93,8 @@ def mostra_help():
     
     schermata_iniziale()
     
-def mostra_calendario(nome_file_output):
-    """_summary_
-
-    Parameters
-    ----------
-    nome_file_output : _type_
-        _description_
-    """    
+def mostra_calendario(nome_file_output: str):
+    
     try:
         # Esegui il comando cat output.txt
         subprocess.call(["cat", nome_file_output])
