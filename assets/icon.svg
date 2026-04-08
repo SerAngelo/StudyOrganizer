@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img">
+  <title>Study Organizer</title>
+  <desc>App icon: dark rounded square containing the Study Organizer logo — a monospace letter S next to a cyan ring with spaced-repetition tick marks.</desc>
+
+  <!-- Dark rounded tile -->
+  <rect x="0" y="0" width="240" height="240" rx="36" ry="36" fill="#161616"/>
+  <rect x="0.5" y="0.5" width="239" height="239" rx="35.5" ry="35.5" fill="none" stroke="#2E2E2E" stroke-width="1"/>
+
+  <!-- S letter -->
+  <text x="79" y="154" text-anchor="middle"
+        font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, Menlo, Consolas, monospace"
+        font-size="96" font-weight="600" fill="#EFEFEF">S</text>
+
+  <!-- O ring -->
+  <circle cx="151" cy="120" r="38" fill="none" stroke="#00BCD4" stroke-width="4"/>
+
+  <!-- spaced-repetition tick dots -->
+  <circle cx="151" cy="74"  r="3.5" fill="#EFEFEF"/>
+  <circle cx="181" cy="85"  r="3.5" fill="#EFEFEF"/>
+  <circle cx="197" cy="120" r="3.5" fill="#EFEFEF"/>
+  <circle cx="174" cy="160" r="3.5" fill="#EFEFEF"/>
+  <circle cx="116" cy="150" r="3.5" fill="#EFEFEF"/>
+</svg>

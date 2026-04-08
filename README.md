@@ -1,4 +1,12 @@
-# Study Organizer
+<p align="center">
+  <img src="assets/icon.svg" alt="Study Organizer" width="140"/>
+</p>
+
+<h1 align="center">Study Organizer</h1>
+
+<p align="center">
+  A desktop study planner with spaced repetition, built in PyQt6.
+</p>
 
 A desktop application for planning, tracking, and reviewing university study sessions, built with **PyQt6**. It combines a spaced-repetition scheduler, a study timer, exam-date tracking, statistics, a random subtopic reviewer, and an audio note recorder — all in a single dark-themed sidebar interface.
 
