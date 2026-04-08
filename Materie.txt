@@ -1,0 +1,11 @@
+#GTMP 2026 4 15
+Lie_Groups 2026 3 30
+Manifolds 2026 3 31
+Rappresentation_theory 2026 4 1
+Groups_in:general 2026 4 2
+The_2_brothers 2026 4 3
+GT_in_MQ 2026 4 4
+
+
+
+
