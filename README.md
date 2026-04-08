@@ -39,7 +39,7 @@ On most Linux distributions PyQt6 ships with multimedia support out of the box. 
 ## Installation
 
 ```bash
-git clone https://github.com/<your-username>/study-organizer.git
+git clone https://github.com/SerAngelo/StudyOrganizer.git
 cd study-organizer
 
 python -m venv .venv
