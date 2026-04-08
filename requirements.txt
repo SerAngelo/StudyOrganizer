@@ -1,2 +1,2 @@
-PyQt6>=6.5
+questionary>=2.0
 tabulate>=0.9
