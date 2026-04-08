@@ -35,7 +35,7 @@ Works on Linux, macOS, and Windows (any terminal with ANSI-color support).
 ## Installation
 
 ```bash
-git clone -b terminal_interface https://github.com/<your-username>/study-organizer.git
+git clone -b terminal_interface https://github.com/SerAngelo/StudyOrganizer.git
 cd study-organizer
 
 python -m venv .venv
@@ -125,7 +125,7 @@ The pickle file is portable — you can copy it between machines to sync your st
 
 ## License
 
-Copyright (C) 2026 Angelo
+Copyright (C) 2026 Angelo Serrecchia
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
